@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import SeassonDisplay from './SeassonDisplay';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        // THIS IS THE ONLY TIME we do direct assigment
-        // to this.state
-        this.state = { lat: null, errorMessage: '' };
-    }
+    state = { lat: null, errorMessage: '' };
 
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
@@ -24,7 +19,7 @@ class App extends React.Component {
         }
 
         if(this.state.lat && !this.state.errorMessage){
-            return <div>Location: { this.state.lat }</div>
+            return <SeassonDisplay lat={this.state.lat} />
         }
 
         return <div>Loading!</div>
