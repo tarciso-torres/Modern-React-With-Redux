@@ -7,6 +7,7 @@ import {
 
 import Home from './components/Home';
 import Login from './components/Login';
+import PageNotFount from './components/PageNotFount';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route path="*">
+          <PageNotFount />
         </Route>
       </Switch>
     </Router>
